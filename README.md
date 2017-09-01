@@ -1,18 +1,33 @@
-# Base0
+# Game0: RipCoil 2D
+RipCoil 2D is a 2D adapataion of the VR game RipCoil for occulus rift.
 
-Base0 is the starter code for the game0 in the 15-466-f17 course. It was developed by Jim McCann, and is hereby released into the public domain.
+![alt text](0-1.png)
 
-Note that Base0 is attempting to illustrate a very straightfoward "get it done" philosophy of game code design -- I've purposefully removed some of the conveniences one typically uses to sweep things under the rug.
+"RipCoil 2D" is played on a single screen. The player controls the vertical position of a racket using their mouse, and uses it to bounce a ball multiple times without causing the ball to exit the screen.
 
-This is because game0 *does not need* such conveniences. It is simple because game0 is simple.
+## Gameplay
+ 
+Every round, the ball starts in the middle of the screen, and the player has an option to move the raquet up or down and -- after the user clicks -- is launched to the right based on the position of the raquet.
 
-## Requirements
+![alt text](0-4.png) 
 
- - glm
- - libSDL2
- - modern C++ compiler
+If the ball hits the racket, it is bounced back into the field with a new velocity (depending on its position relative to the center of the racket). If the ball reaches the right wall, it is reset to the center of the field and launched when the user clicks. If the ball is lost three times, the game ends, and the level reached is displayed.
 
-On Linux or OSX these requirements should be available from your package manager without too much hassle.
+![alt text](0-2.png)
+
+![alt text](0-3.png) 
+
+If the ball hits one of the pads, the number of bounces increases by 1 and the ball bounces off symmetrically. If the number of bounces is reached and the ball is caught, the game moves to the next level.
+
+## Note: Ball Angle
+
+The vertical velocity of the ball leaving the paddle is set by its position of impact relative to the center of the paddle. This allows the player to steer the ball.
+
+## Note: Target Score
+
+Every round, target bounces increase by one. The postion of the three pads are randomized.
+
+### Disclaimer: I used some text from the default design document since some elements are really similar.
 
 ## Building
 
