@@ -81,7 +81,7 @@ int main(int argc, char **argv) {
 	glm::vec2 mouse = glm::vec2(0.0f, 0.0f);
 	glm::vec2 ball = glm::vec2(0.85f, 0.0f);
 	glm::vec2 ball_velocity = glm::vec2(0.0f, 0.0f);
-	srand(0);
+	srand((unsigned int)time(NULL));
 	glm::vec2 pad1 = glm::vec2((float)(rand() % 100 - 50)/200.0f, 1.0f);
 	glm::vec2 pad2 = glm::vec2(-1.0f, (float)(rand() % 100 - 50) / 200.0f);
 	glm::vec2 pad3 = glm::vec2((float)(rand() % 100 - 50) / 200.0f, -1.0f);
@@ -132,7 +132,6 @@ int main(int argc, char **argv) {
 				ball_velocity.y = std::abs(ball_velocity.y);
 				curBounces++;
 			} else if (ball.x + 0.05f >= 0.9f && ball.y - 0.05f <= mouse.y + padLength / 2.0 && ball.y + 0.05f >= mouse.y - padLength / 2.0) {
-				//ball_velocity.x = -std::abs(ball_velocity.x);
 				if (ball_velocity.x != 0.0f || ball_velocity.y != 0.0f) {
 					float y_velocity = 2.0f* (ball.y - mouse.y);
 					ball_velocity = glm::vec2(-sqrt(1.0f - y_velocity * y_velocity), y_velocity);
@@ -142,6 +141,9 @@ int main(int argc, char **argv) {
 					ball = glm::vec2(0.85f, 0.0f);
 					expectedBounces++;
 					curBounces = 0;
+					pad1 = glm::vec2((float)(rand() % 100 - 50) / 200.0f, 1.0f);
+					pad2 = glm::vec2(-1.0f, (float)(rand() % 100 - 50) / 200.0f);
+					pad3 = glm::vec2((float)(rand() % 100 - 50) / 200.0f, -1.0f);
 				}
 			} else if (ball.x - 0.05f <= -1.0f || ball.x + 0.05f >= 1.0f || ball.y - 0.05f <= -1.0f || ball.y + 0.05f >= 1.0f) {
 				ball_velocity = glm::vec2(0.0f, 0.0f);
