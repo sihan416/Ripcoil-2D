@@ -55,6 +55,7 @@ Before building, clone [kit-libs-win](https://github.com/ixchow/kit-libs-win) in
 ```
   git clone https://github.com/ixchow/kit-libs-win
 ```
+Make sure the folder is a subdirectory of Ripcoil-2D.
 Now you can:
 ```
   nmake -f Makefile.win
