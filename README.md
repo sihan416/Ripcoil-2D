@@ -7,7 +7,7 @@ RipCoil 2D is a 2D adapataion of the VR game RipCoil for occulus rift.
 
 ## Gameplay
  
-Every round, the ball starts in the middle of the screen, and the player has an option to move the raquet up or down and -- after the user clicks -- is launched to the right based on the position of the raquet.
+Every round, the ball starts in the middle of the screen, and the player has an option to move the raquet up or down using the mouse and -- after the user clicks -- is launched to the right based on the position of the raquet. Note the ball can only be launched when the raquet is in contact with the red ball.
 
 ![alt text](0-4.png) 
 
